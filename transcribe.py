@@ -412,7 +412,7 @@ def install_dependencies():
 
 def process_audio(audio_file, model_name="large-v2", hf_token=None, 
                   device="cuda", compute_type="float16", batch_size=8, 
-                  language=None, output_dir="output", 
+                  language="en", output_dir="output", 
                   min_speakers=None, max_speakers=None):
     """
     Process an audio file with WhisperX for transcription and diarization.
@@ -470,7 +470,7 @@ def process_audio(audio_file, model_name="large-v2", hf_token=None,
     
     logger.info(f"Transcribing audio: {audio_file}")
     audio = whisperx.load_audio(audio_file)
-    result = model.transcribe(audio, batch_size=batch_size, language=language)
+    result = model.transcribe(audio, batch_size=batch_size, language="en")
     
     # Free up memory
     del model
