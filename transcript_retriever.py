@@ -57,7 +57,7 @@ class TranscriptRetriever:
         self, 
         query: str, 
         limit: int = 3,
-        threshold: float = 0.5,
+        threshold: float = 0.4,
         meeting_id: Optional[str] = None,
         speakers: Optional[List[str]] = None,
         time_range: Optional[tuple] = None
@@ -107,7 +107,7 @@ class TranscriptRetriever:
             collection_name=self.collection_name,
             query_vector=query_vector,
             limit=limit,
-            score_threshold=threshold,
+            # score_threshold=0.4,
             query_filter=search_filter
         )
         
